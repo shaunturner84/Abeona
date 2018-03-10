@@ -1,0 +1,80 @@
+body
+{
+   padding: 0px 0px 0px 0px;
+   margin: 0px 0px 0px 0px;
+}
+
+h1 
+{
+   color: #ffffff;
+   background-color: #000099;
+   padding: 5px 5px 5px 5px;
+   font: 20px bold arial, verdana;
+}
+
+h2
+{
+   font: 18px bold arial, verdana;
+   padding: 5px 5px 5px 25px;
+}
+
+.Reviews
+{
+   list-style-type: none;
+   list-style-image: none;
+}
+
+.rr_even, .rr_odd
+{
+   width: 250px;
+   height: 200px;
+   float: left;
+   margin: 5px 5px 5px 5px;
+   padding: 1px 1px 1px 1px;
+   position: relative;
+   background-size: 250px 200px;
+}
+
+.rr_even
+{
+   background-color: #dddddd;
+}
+
+.rr_name
+{
+   position: absolute;
+   top: 30px;
+   width: 208px;
+   height: 16px;
+   background-color: #000099;
+   color: #FFFFFF;
+   padding: 5px 2px 2px 2px;
+   text-align: center;
+   font: 12px bold arial, verdana;
+   vertical-align: middle;
+}
+
+.rr_visitdate
+{
+   position: absolute;
+   font: 12px arial, verdana;
+   bottom: 3px;
+   left: 0px;
+   background-color: #006699;
+   padding: 2px 5px 2px 2px;
+}
+
+.rr_reviewedby
+{
+   position: absolute;
+   font: 12px arial, verdana;
+   bottom:3px;
+   right: 0px;
+   background-color: #006699;
+   padding: 2px 5px 2px 2px;
+}
+
+.rr_odd
+{
+   background-color: #999999;
+}
