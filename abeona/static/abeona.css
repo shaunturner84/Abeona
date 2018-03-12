@@ -10,12 +10,20 @@ h1
    background-color: #000099;
    padding: 5px 5px 5px 5px;
    font: 20px bold arial, verdana;
+   clear: both;
 }
 
 h2
 {
    font: 18px bold arial, verdana;
    padding: 5px 5px 5px 25px;
+   clear: both;
+}
+
+h3
+{
+   padding: 5px 5px 5px 25px;
+   clear: both;
 }
 
 .Reviews
@@ -77,4 +85,140 @@ h2
 .rr_odd
 {
    background-color: #999999;
+}
+
+#map
+{
+   clear: both;
+   height: 200;
+   width: 250;
+   margin: 45px 45px 45px 45px;
+}
+
+.rr_odd a
+{
+   color: #FFFFFF;
+   text-decoration: none;
+}
+
+.rr_even a
+{
+   color: #FFFFFF;
+   text-decoration: none;
+}
+
+.photo
+{
+   list-style-type: none;
+   list-style-image: none;
+   float: left;
+   margin: 5px 5px 5px 5px;
+}
+
+.photo img
+{
+   height: 200px;
+   width: 250px;
+}
+
+.review_details
+{
+   position: relative;
+   margin: 25px 45px 25px 45px;
+   background-color: #dddddd;
+}
+
+.review_reviewedby
+{
+   position: absolute;
+   right: 0px;
+   bottom: 5px;
+   padding-left: 30px; 
+   padding-right: 5px;
+   margin: 0px 0px 0px 0px;
+   background-color: #0099ff;
+
+}
+
+.review_visitdate
+{
+   position: absolute;
+   right: 0px;
+   top: 45px;
+   padding-left: 30px; 
+   padding-right: 5px;
+   margin: 0px 0px 0px 0px;
+   background-color: #ff0099;
+}
+
+.review_placetype
+{
+   position: absolute;
+   right: 0px;
+   top: 25px;
+   padding-left: 30px; 
+   padding-right: 5px;
+   margin: 0px 0px 0px 0px;
+   background-color: #ff9900;
+
+}
+
+.review_rating
+{
+   position: absolute;
+   right: 0px;
+   top: 5px;
+   padding-left: 30px;
+   padding-right: 5px;
+   margin: 0px 0px 0px 0px;
+   background-color: #0099ff;
+}
+
+.review_textdata
+{
+  width: 70%; 
+  margin: 10px 10px 10px 10px;
+  padding: 5px 10px 10px 10px;
+  font: 14px arial, verdana;
+  min-height: 100px;
+}
+
+.review_metadata
+{
+   margin: 0px 0px 0px 0px;
+   font: italic 14px arial, verdana;
+   position: absolute;
+   right: 0px;
+   width: 28%;
+   height: 100%;
+}
+
+.menu
+{
+   position: fixed;
+   top: 0px;
+   right: 0px;
+   background-color: #000099;
+   padding: 5px 5px 5px 5px;
+   font: 14px arial, verdana;
+}
+
+.menu a
+{
+   color: #FFFFFF;
+   
+   padding: 10px;
+}
+
+.featurelist
+{
+   padding-bottom: 20px;
+} 
+
+.featurelist li
+{
+   list-style-type: none;
+   list-style-image: none;
+   float: left;
+   padding-left: 10px;
 }

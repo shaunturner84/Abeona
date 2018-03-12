@@ -1,0 +1,23 @@
+<html>
+  <head>
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "abeona.css" %}">
+  </head>
+  <body>
+    <h1>Welcome to Abeona</h1>
+    {% include 'abeona/menu.html' %}
+    <h2>Most recent reviews</h2>
+    {% if recent_reviews %}  
+      <ul class="Reviews">
+      {% for review in recent_reviews %}
+          <li class="{% cycle 'rr_odd' 'rr_even' %}" style="background-image: url({{ review.img }})">
+            <div class="rr_name"><a href="review-{{ review.ID }}">{{ review.name }}</a></div>
+	    <div class="rr_visitdate">{{ review.visitdate }}</div> 
+            <div class="rr_reviewedby">{{ review.reviewedby }}</div>
+          </li>
+      {% endfor %}
+   </ul>
+   {% endif %}
+</body>
+</html>
+

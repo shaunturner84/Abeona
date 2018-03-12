@@ -13,6 +13,8 @@ class PlaceType(models.Model):
    name = models.CharField(max_length=20,default='<Place Name>')
    def __str__(self):
      return self.name
+   class Meta:
+     ordering = ( 'name', )
 
 @python_2_unicode_compatible
 class Reviewer(models.Model):
@@ -20,6 +22,8 @@ class Reviewer(models.Model):
    name = models.CharField('Name of Reviewer', max_length=20, default='<Name of Reviewer>')
    def __str__(self):
      return self.name
+   class Meta:
+     ordering = ( 'name', )
 
    
 @python_2_unicode_compatible
@@ -31,8 +35,12 @@ class Review(models.Model):
    visitdate = models.DateTimeField('Date of Visit',default=timezone.now)
    rating = models.DecimalField(null=True,max_digits=3,decimal_places=1)
    textdata = models.TextField(null=True)
+   lat= models.DecimalField(null=True,max_digits=10,decimal_places=6)
+   lng= models.DecimalField(null=True,max_digits=10,decimal_places=6)
    def __str__(self):
-     return str(self.reviewid)
+     return str(self.name)
+   class Meta:
+     ordering = ( '-visitdate', )
 
 @python_2_unicode_compatible
 class ReviewPhotos(models.Model):
@@ -42,4 +50,25 @@ class ReviewPhotos(models.Model):
    img = models.ImageField(upload_to='uploads/%Y/%m/%d/',height_field=None,width_field=None,max_length=100)
    def __str__(self):
       return str(self.reviewphotoid)
+
+@python_2_unicode_compatible
+class Feature(models.Model):
+   featureid = models.AutoField(primary_key=True)
+   name = models.CharField(max_length=20,default='<Item>',null=True)
+   def __str__(self):
+      return str(self.name)
+   class Meta:
+      ordering = ( 'name', )
+
+@python_2_unicode_compatible
+class ReviewFeature(models.Model):
+   reviewfeatureid = models.AutoField(primary_key=True)
+   reviewid = models.ForeignKey(Review,on_delete=models.CASCADE)
+   featureid = models.ForeignKey(Feature, on_delete=models.CASCADE)
+   rating = models.DecimalField(null=True,max_digits=3,decimal_places=1)
+   def __str__(self):
+      return str(self.reviewfeatureid)
+   class Meta: 
+      ordering = ( 'featureid__name', )
+
 

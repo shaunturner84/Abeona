@@ -4,19 +4,39 @@
     <link rel="stylesheet" type="text/css" href="{% static "abeona.css" %}">
   </head>
   <body>
-    <h1>Welcome to Abeona</h1>
-    <h2>Most recent reviews</h2>
-    {% if recent_reviews %}  
-      <ul class="Reviews">
-      {% for review in recent_reviews %}
-          <li class="{% cycle 'rr_odd' 'rr_even' %}" style="background-image: url({{ review.img }})">
-            <div class="rr_name">{{ review.name }}</div>
-	    <div class="rr_visitdate">{{ review.visitdate }}</div> 
-            <div class="rr_reviewedby">{{ review.reviewedby }}</div>
-          </li>
+    <h1>Abeona</h1>
+    {% include 'abeona/menu.html' %}
+   <h2 style="clear=all">Places we've reviewed</h2>
+   <div id="map" style="width: 90%; height: 70%;"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 54.003, lng: -2.548},
+          zoom: 5
+        });
+
+      {% for review in all_reviews %}
+        var marker{{ review.reviewid }} = new google.maps.Marker({
+          position: {lat: {{ review.lat }}, lng: {{ review.lng }}},
+          map: map,
+          title: '{{ review.name }}'
+        });
+	
+	var infowindow{{ review.reviewid }} = new google.maps.InfoWindow({
+          content: '<div id="content"><a href="/review-{{ review.reviewid }}">{{ review.name }}</a></div>'
+        });
+
+	marker{{ review.reviewid }}.addListener('click', function() {
+          infowindow{{ review.reviewid }}.open(map, marker{{ review.reviewid }});
+        });
+
+
       {% endfor %}
-   </ul>
-   {% endif %}
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAynAxT7wsTXyutomd7bKn9XXC8uecXyLs&callback=initMap"
+    async defer></script>
 </body>
 </html>
 
