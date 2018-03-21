@@ -10,7 +10,9 @@
     {% if recent_reviews %}  
       <ul class="Reviews">
       {% for review in recent_reviews %}
-          <li class="{% cycle 'rr_odd' 'rr_even' %}" style="background-image: url({{ review.img }})">
+          {% load thumbnail %}
+          {% thumbnail review.img 250x200 crop as thumb %}
+          <li class="{% cycle 'rr_odd' 'rr_even' %}" style="background-image: url({{ thumb.url }})">
             <div class="rr_name"><a href="review-{{ review.ID }}">{{ review.name }}</a></div>
 	    <div class="rr_visitdate">{{ review.visitdate }}</div> 
             <div class="rr_reviewedby">{{ review.reviewedby }}</div>

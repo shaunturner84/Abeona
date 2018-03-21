@@ -1,0 +1,39 @@
+<html>
+  <head>
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "abeona.css" %}">
+  </head>
+  <body>
+   <h1>Abeona</h1>
+   {% include "abeona/menu.html" %}
+   <h2>{{ journal.name }}</h2>
+   <h3>Photos</h3>
+      <ul>
+      {% for photo in photos %}
+        {% load thumbnail %}
+        {% thumbnail photo.img 250x200 crop as thumb %}
+
+        <li class="photo"><a href="{{ photo.img.url }}"><img src="{{ thumb.url }}" alt="{{ photo.description }}" /></a></li>
+      {% endfor %}
+      </ul>
+   {% if tags %}
+   <h3>Tags</h3>
+     <ul class="taglist">
+     {% for tag in tags %}
+        <li>{{ tag.tagid }}</li>
+     {% endfor %}
+     </ul>
+   {% endif %}
+   <h3>Details</h3>
+   <div class="journal_details">
+     <div class="journal_metadata">
+       <div class="journal_enteredby">Entered by: {{ journal.enteredby }}</div>
+       <div class="journal_entrydate">Date: {{ journal.entrydate }}</div>
+     </div>
+     <div class="journal_textdata">
+	{{ textdata|linebreaks }}
+     </div>
+   </div>
+</body>
+</html>
+

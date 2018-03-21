@@ -1,0 +1,24 @@
+<html>
+  <head>
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "abeona.css" %}">
+  </head>
+  <body>
+    <h1>Welcome to Abeona</h1>
+    {% include 'abeona/menu.html' %}
+    <h2>Most recent journals</h2>
+    {% if recent_journals %}  
+      <ul class="Journals">
+      {% for journal in recent_journals %}
+          {% load thumbnail %}
+          {% thumbnail journal.img 250x200 crop as thumb %}
+          <li class="{% cycle 'jnl_odd' 'jnl_even' %}" style="background-image: url({{ thumb.url }})">
+            <div class="jnl_entrydate"><a href="journal-{{ journal.ID }}">{{ journal.entrydate }}</a></div>
+            <div class="jnl_enteredby">{{ journal.enteredby }}</div>
+          </li>
+      {% endfor %}
+   </ul>
+   {% endif %}
+</body>
+</html>
+

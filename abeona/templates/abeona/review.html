@@ -10,7 +10,10 @@
    <h3>Photos</h3>
       <ul>
       {% for photo in photos %}
-        <li class="photo"><a href="{{ photo.img.url }}"><img src="{{ photo.img.url }}" alt="{{ photo.name }}" /></a></li>
+        {% load thumbnail %}
+        {% thumbnail photo.img 250x200 crop as thumb %}
+
+        <li class="photo"><a href="{{ photo.img.url }}"><img src="{{ thumb.url }}" alt="{{ photo.description }}" /></a></li>
       {% endfor %}
       </ul>
    {% if features %}

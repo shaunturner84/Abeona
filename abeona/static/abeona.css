@@ -26,13 +26,15 @@ h3
    clear: both;
 }
 
-.Reviews
+.Reviews, .Journals
 {
    list-style-type: none;
    list-style-image: none;
 }
 
-.rr_even, .rr_odd
+
+
+.rr_even, .rr_odd, .jnl_even, .jnl_odd
 {
    width: 250px;
    height: 200px;
@@ -43,12 +45,12 @@ h3
    background-size: 250px 200px;
 }
 
-.rr_even
+.rr_even, .jnl_even
 {
    background-color: #dddddd;
 }
 
-.rr_name
+.rr_name, .jnl_entrydate
 {
    position: absolute;
    top: 30px;
@@ -60,6 +62,9 @@ h3
    text-align: center;
    font: 12px bold arial, verdana;
    vertical-align: middle;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
 }
 
 .rr_visitdate
@@ -72,7 +77,7 @@ h3
    padding: 2px 5px 2px 2px;
 }
 
-.rr_reviewedby
+.rr_reviewedby, .jnl_enteredby
 {
    position: absolute;
    font: 12px arial, verdana;
@@ -82,7 +87,7 @@ h3
    padding: 2px 5px 2px 2px;
 }
 
-.rr_odd
+.rr_odd, .jnl_odd
 {
    background-color: #999999;
 }
@@ -95,13 +100,13 @@ h3
    margin: 45px 45px 45px 45px;
 }
 
-.rr_odd a
+.rr_odd a, .jnl_odd a
 {
    color: #FFFFFF;
    text-decoration: none;
 }
 
-.rr_even a
+.rr_even a, .jnl_even a
 {
    color: #FFFFFF;
    text-decoration: none;
@@ -121,14 +126,14 @@ h3
    width: 250px;
 }
 
-.review_details
+.review_details, .journal_details
 {
    position: relative;
    margin: 25px 45px 25px 45px;
    background-color: #dddddd;
 }
 
-.review_reviewedby
+.review_reviewedby, .journal_enteredby
 {
    position: absolute;
    right: 0px;
@@ -140,7 +145,7 @@ h3
 
 }
 
-.review_visitdate
+.review_visitdate, journal_entrydate
 {
    position: absolute;
    right: 0px;
@@ -174,7 +179,7 @@ h3
    background-color: #0099ff;
 }
 
-.review_textdata
+.review_textdata, .journal_textdata
 {
   width: 70%; 
   margin: 10px 10px 10px 10px;
@@ -183,7 +188,7 @@ h3
   min-height: 100px;
 }
 
-.review_metadata
+.review_metadata, .journal_metadata
 {
    margin: 0px 0px 0px 0px;
    font: italic 14px arial, verdana;
@@ -210,12 +215,12 @@ h3
    padding: 10px;
 }
 
-.featurelist
+.featurelist, .taglist
 {
    padding-bottom: 20px;
 } 
 
-.featurelist li
+.featurelist li, .taglist li
 {
    list-style-type: none;
    list-style-image: none;
